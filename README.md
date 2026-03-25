@@ -1,1 +1,1 @@
-Sistem Gestiune Sala de Fitnessc - Proiect POO
+Sistem Gestiune Sala de Fitness - Proiect POO
