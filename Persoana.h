@@ -1,3 +1,4 @@
+#pragma once
 #include <iostream>
 #include <string>
 
@@ -9,5 +10,5 @@ protected:
 public:
     Persoana(int varstaPersoana, const std::string& numePersoana); ///constructor
     virtual ~Persoana(); ///destructor
-    virtual void info() const=0; ///clasa abstract
+    virtual void info() const=0; ///clasa abstracta
 };
