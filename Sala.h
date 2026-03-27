@@ -7,12 +7,11 @@
 #include "Persoana.h"
 #include "ExceptieSala.h"
 
-class Sala {
+class Sala{
 private:
     std::string* numeSala;
     std::vector<Echipament> echipamente;
     std::vector<Persoana*> persoane;
-
 public:
     Sala(const std::string& numeSalaFitness);
 
@@ -23,4 +22,8 @@ public:
     void adaugapersoana(Persoana* p);
     void adaugaechipament(const Echipament& e);
     void info() const;
+
+    bool modificaSalariu(const std::string& numeAngajat, double salariuNou);
+    void stergeUltimaPersoana();
+    
 };

@@ -10,6 +10,6 @@ Client::~Client(){}
 
 void Client::info() const{
     std::cout<<"client: "<<nume<<'\n'<<"varsta: "<<varsta<<'\n'<<"numar vizite: "<<numarVizite<<'\n';
-    std::cout << "abonament: ";
+    std::cout<<"abonament: "<<'\n';
     this->abonament.info();
 }

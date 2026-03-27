@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include "Sala.h"
+#include "Angajat.h"
 
 ///constructor
 Sala::Sala(const std::string& numeSalaFitness){
@@ -46,12 +47,30 @@ void Sala::info()const{
     std::cout<<"sala: "<<*numeSala<<'\n';
     std::cout<<"echipamente:";
     for (int i=0; i<this->echipamente.size(); i++){
-
         this->echipamente[i].info();
     }
     std::cout<<"persoane:";
     for (int i=0; i<this->persoane.size(); i++){
-
         this->persoane[i]->info();
+    }
+}
+///modificare salariu
+bool Sala::modificaSalariu(const std::string& numeAngajat, double salariuNou){
+    for (int i=0; i<this->persoane.size(); i++) {
+        if (this->persoane[i]->getNume() == numeAngajat) {
+            Angajat* angajatGasit = dynamic_cast<Angajat*>(this->persoane[i]);
+            if (angajatGasit != nullptr){
+                angajatGasit->setSalariu(salariuNou);
+                return true;
+            }
+        }
+    }
+    return false;
+}
+///stergere ultima persoana
+void Sala::stergeUltimaPersoana() {
+    if (!this->persoane.empty()) {
+        delete this->persoane.back();
+        this->persoane.pop_back();
     }
 }

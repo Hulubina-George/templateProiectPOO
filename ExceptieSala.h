@@ -7,7 +7,7 @@ public:
     ExceptieSala(const std::string& mesaj);
 };
 
-class ExceptieValidare : public std::logic_error {
+class ExceptieValidare:public std::logic_error{
 public:
     ExceptieValidare(const std::string& mesaj);
 };
