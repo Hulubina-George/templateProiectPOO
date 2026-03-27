@@ -6,7 +6,7 @@
 #include "AngajatNutritie.h"
 #include "AngajatDublu.h"
 #include "Abonament.h"
-#include "ExceptieSala.h" // Pentru ExceptieValidare
+#include "ExceptieSala.h"
 
 Meniu::Meniu(Sala& s):salaMea(s){}
 
@@ -16,14 +16,14 @@ void Meniu::ruleaza(){
     while (optiune != 0) {
         std::cout<<'\n'<<"MENIU GESTIUNE SALA"<<'\n';
         std::cout<<"1. Crearea de obiecte noi"<<'\n';
-        std::cout<<"2. Modificarea/Actualizarea obiectelor existente (Salariu Angajat)"<<'\n';
-        std::cout<<"3. Afisarea bazei de date/stocului"<<'\n';
+        std::cout<<"2. Modificare Salariu Angajat"<<'\n';
+        std::cout<<"3. Afisare informatii"<<'\n';
         std::cout<<"4. Stergerea elementelor"<<'\n';
         std::cout<<"0. Iesire"<<'\n';
         std::cout<<"Alege o optiune: ";
         std::cin>>optiune;
 
-        switch (optiune) {
+        switch(optiune){
             case 1:{
                 int subOptiune;
                 std::cout<<'\n'<<"Ce doresti sa creezi?"<<'\n';
@@ -92,7 +92,7 @@ void Meniu::ruleaza(){
                         std::cout << "Nume echipament: ";
                         std::getline(std::cin, nume);
                         salaMea.adaugaechipament(Echipament(nume));
-                        std::cout << "Echipament creat cu succes!\n";
+                        std::cout << "Echipament adaugat\n";
                     }
                 } 
                 catch (const ExceptieValidare& e){

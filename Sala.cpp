@@ -45,6 +45,7 @@ void Sala::adaugaechipament(const Echipament& e){
 ///afisare
 void Sala::info()const{
     std::cout<<"sala: "<<*numeSala<<'\n';
+    std::cout<<"numar echipamente: "<<echipamente.size()<<'\n';
     std::cout<<"echipamente:";
     for (int i=0; i<this->echipamente.size(); i++){
         this->echipamente[i].info();
