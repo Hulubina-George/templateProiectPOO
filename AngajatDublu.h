@@ -7,7 +7,7 @@
 
 class AngajatDublu:public AngajatFitness, public AngajatNutritie{
 public:
-    AngajatDublu(int varstaPersoana, const std::string& numePersoana, double salariuAngajat, const std::string& tipAntrenament, const std::string& dietaAngajat);
+    AngajatDublu(int varstaPersoana, const std::string& numePersoana, double salariuAngajat, const std::string& antrenamentAngajat, const std::string& dietaAngajat);
     ~AngajatDublu() override;
     void info() const override;
 };

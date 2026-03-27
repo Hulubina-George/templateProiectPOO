@@ -7,5 +7,5 @@ AngajatDublu::AngajatDublu(int varstaPersoana, const std::string& numePersoana, 
 AngajatDublu::~AngajatDublu(){}
 
 void AngajatDublu::info() const{
-    std::cout<<"angajat"<<nume<<'\n'<<"varsta: "<<varsta<<'\n'<<"salariu: "<<salariu<<'\n'<<"antrenament: "<<antrenament<<'\n'<<"dieta: "<<dieta<<'\n';
+    std::cout<<"angajat "<<nume<<'\n'<<"varsta: "<<varsta<<'\n'<<"salariu: "<<salariu<<'\n'<<"antrenament: "<<antrenament<<'\n'<<"dieta: "<<dieta<<'\n';
 }
