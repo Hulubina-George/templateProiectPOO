@@ -16,4 +16,5 @@ int Echipament::getNumarTotal(){
 }
 void Echipament::info() const{
     std::cout<<"echipament: "<<nume<<'\n';
+    std::cout<<"numar total echipamente: "<<getNumarTotal()<<'\n';
 }
