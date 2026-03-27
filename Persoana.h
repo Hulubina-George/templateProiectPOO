@@ -2,14 +2,16 @@
 #include <iostream>
 #include <string>
 
-class Persoana{
+class Persoana {
 protected:
-    std::string nume;
     int varsta;
+    std::string nume;
 public:
-    Persoana(int varstaPersoana, const std::string& numePersoana); ///constructor
-    virtual ~Persoana(); ///destructor
-    virtual void info() const=0; ///clasa abstracta
-    std::string getNume() const{return nume;}
-    int getVarsta()const{return varsta;}
+    Persoana(int varstaPersoana, const std::string& numePersoana);
+    virtual ~Persoana();
+
+    std::string getNume() const;
+    int getVarsta() const;
+
+    virtual void info() const = 0;
 };

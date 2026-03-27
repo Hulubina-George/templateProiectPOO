@@ -1,15 +1,15 @@
+#include "Client.h"
 #include <iostream>
 #include <string>
-#include "Client.h"
 
-Client::Client(int varstaPersoana, const std::string& numePersoana, int numarVizite, const Abonament& abonament):Persoana(varstaPersoana, numePersoana), abonament(abonament) {
+Client::Client(int varstaPersoana, const std::string& numePersoana, int numarVizite, const Abonament& abonament)
+    : Persoana(varstaPersoana, numePersoana), abonament(abonament) {
     this->numarVizite = numarVizite;
 }
 
-Client::~Client(){}
+Client::~Client() {}
 
-void Client::info() const{
-    std::cout<<"client: "<<nume<<'\n'<<"varsta: "<<varsta<<'\n'<<"numar vizite: "<<numarVizite<<'\n';
-    std::cout<<"abonament: "<<'\n';
-    this->abonament.info();
+void Client::info() const {
+    std::cout << "Client: " << getNume() << " | Varsta: " << getVarsta() << " | Vizite: " << numarVizite << "\n";
+    abonament.info();
 }

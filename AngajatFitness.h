@@ -3,7 +3,7 @@
 #include <string>
 #include "Angajat.h"
 
-class AngajatFitness:virtual public Angajat{
+class AngajatFitness : virtual public Angajat {
 protected:
     std::string antrenament;
 public:
@@ -11,4 +11,3 @@ public:
     ~AngajatFitness() override;
     void info() const override;
 };
-

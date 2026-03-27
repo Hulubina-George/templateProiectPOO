@@ -7,17 +7,19 @@ Abonament::Abonament(const std::string& tipAbonament, double pretAbonament, int 
     this->pret = pretAbonament;
     this->durata = durataAbonament;
 }
-//getteres
-std::string Abonament::getTip()const{
+
+std::string Abonament::getTip() const {
     return this->tip;
 }
-double Abonament::getPret()const{
-    return this -> pret;
+
+double Abonament::getPret() const {
+    return this->pret;
 }
-int Abonament::getDurata()const{
+
+int Abonament::getDurata() const {
     return this->durata;
 }
 
-void Abonament::info()const{
+void Abonament::info() const {
     std::cout << "Tip: " << getTip() << ", Pret: " << getPret() << ", Durata: " << getDurata() << " zile\n";
 }
