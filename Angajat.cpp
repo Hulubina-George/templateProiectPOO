@@ -6,7 +6,7 @@ Angajat::Angajat(int varstaPersoana, const std::string& numePersoana, double sal
     this->salariu = salariuAngajat;
 }
 
-Angajat::~Angajat(){}
+Angajat::~Angajat() {}
 
 void Angajat::info() const{
     std::cout<<"angajat: "<<nume<<'\n'<<"varsta: " <<varsta<<'\n'<<"salariu: "<<salariu<<'\n';
