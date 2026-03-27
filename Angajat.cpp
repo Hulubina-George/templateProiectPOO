@@ -9,5 +9,5 @@ Angajat::Angajat(int varstaPersoana, const std::string& numePersoana, double sal
 Angajat::~Angajat() {}
 
 void Angajat::info() const{
-    std::cout<<"angajat: "<<nume<<'\n'<<"varsta: " <<varsta<<'\n'<<"salariu: "<<salariu<<'\n';
+    std::cout << "Salariu: " << getSalariu() << "\n";
 }

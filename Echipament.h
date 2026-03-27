@@ -7,7 +7,7 @@ private:
     std::string nume;
     static int numarTotal;
 public:
-    Echipament(const std::string& numeEchipament);
+    explicit  Echipament(const std::string& numeEchipament);
     ~Echipament();
 
     static int getNumarTotal();

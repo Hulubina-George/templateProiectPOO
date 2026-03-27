@@ -10,7 +10,7 @@ private:
     int numarVizite;
     Abonament abonament;
 public:
-    Client(int varstaPersoana, const std::string& numePersoana, int numarVizite, Abonament abonament);
+    Client(int varstaPersoana, const std::string& numePersoana, int numarVizite, const Abonament& abonament);
     ~Client() override;
     
     void info() const override;

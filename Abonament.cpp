@@ -19,5 +19,5 @@ int Abonament::getDurata()const{
 }
 
 void Abonament::info()const{
-    std::cout<<"tip: "<<this->tip<<'\n'<<"pret: "<<this->pret<<'\n'<<"durata: "<<this->durata<<'\n';
+    std::cout << "Tip: " << getTip() << ", Pret: " << getPret() << ", Durata: " << getDurata() << " zile\n";
 }

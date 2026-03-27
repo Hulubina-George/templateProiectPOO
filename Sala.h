@@ -13,7 +13,7 @@ private:
     std::vector<Echipament> echipamente;
     std::vector<Persoana*> persoane;
 public:
-    Sala(const std::string& numeSalaFitness);
+    explicit Sala(const std::string& numeSalaFitness);
 
     ~Sala();
     Sala(const Sala& altul);

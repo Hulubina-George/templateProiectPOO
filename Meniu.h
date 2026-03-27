@@ -7,6 +7,6 @@ class Meniu{
 private:
     Sala& salaMea;
 public:
-    Meniu(Sala& s); ///constructor
+    explicit Meniu(Sala& s); ///constructor
     void ruleaza();
 };

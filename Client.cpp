@@ -2,7 +2,7 @@
 #include <string>
 #include "Client.h"
 
-Client::Client(int varstaPersoana, const std::string& numePersoana, int numarVizite, Abonament abonament):Persoana(varstaPersoana, numePersoana), abonament(abonament){
+Client::Client(int varstaPersoana, const std::string& numePersoana, int numarVizite, const Abonament& abonament):Persoana(varstaPersoana, numePersoana), abonament(abonament) {
     this->numarVizite = numarVizite;
 }
 
