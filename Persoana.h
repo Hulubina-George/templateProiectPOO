@@ -1,5 +1,4 @@
 #pragma once
-#include <iostream>
 #include <string>
 
 class Persoana {
@@ -9,9 +8,7 @@ protected:
 public:
     Persoana(int varstaPersoana, const std::string& numePersoana);
     virtual ~Persoana();
-
     std::string getNume() const;
     int getVarsta() const;
-
     virtual void info() const = 0;
 };

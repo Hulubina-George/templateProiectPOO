@@ -1,13 +1,11 @@
-#include <iostream>
-#include <string>
 #include "Angajat.h"
+#include <iostream>
 
-Angajat::Angajat(int varstaPersoana, const std::string& numePersoana, double salariuAngajat) : Persoana(varstaPersoana, numePersoana) {
-    this->salariu = salariuAngajat;
-}
-
+Angajat::Angajat(int varstaPersoana, const std::string& numePersoana, double salariuAngajat) 
+    : Persoana(varstaPersoana, numePersoana), salariu(salariuAngajat) {}
 Angajat::~Angajat() {}
-
+double Angajat::getSalariu() const { return salariu; }
+void Angajat::setSalariu(double salariuNou) { salariu = salariuNou; }
 void Angajat::info() const {
-    std::cout << "Salariu: " << getSalariu() << "\n";
+    std::cout << "Nume: " << getNume() << ", Varsta: " << getVarsta() << ", Salariu: " << getSalariu() << "\n";
 }

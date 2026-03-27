@@ -1,20 +1,9 @@
-#include <iostream>
-#include <string>
 #include "Echipament.h"
+#include <iostream>
 
-int Echipament::numarTotal = 0;
-
-Echipament::Echipament(const std::string& numeEchipament){
-    this->nume = numeEchipament;
-    numarTotal++;
-}
-Echipament::~Echipament(){
-    numarTotal--;
-}
-int Echipament::getNumarTotal(){
-    return numarTotal;
-}
-void Echipament::info() const{
-    std::cout<<"echipament: "<<nume<<'\n';
-    std::cout<<"numar total echipamente: "<<getNumarTotal()<<'\n';
+int Echipament::numarTotalEchipamente = 0;
+Echipament::Echipament(const std::string& nume) : numeEchipament(nume) { numarTotalEchipamente++; }
+int Echipament::getNumarTotal() { return numarTotalEchipamente; }
+void Echipament::info() const {
+    std::cout << "Echipament: " << numeEchipament << " (Total: " << getNumarTotal() << ")\n";
 }

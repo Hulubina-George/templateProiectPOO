@@ -1,12 +1,10 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include "Sala.h"
 
-class Meniu{
+class Meniu {
 private:
     Sala& salaMea;
 public:
-    explicit Meniu(Sala& s); ///constructor
+    explicit Meniu(Sala& s);
     void ruleaza();
 };

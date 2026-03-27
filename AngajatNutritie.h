@@ -1,6 +1,4 @@
 #pragma once
-#include <iostream>
-#include <string>
 #include "Angajat.h"
 
 class AngajatNutritie : virtual public Angajat {

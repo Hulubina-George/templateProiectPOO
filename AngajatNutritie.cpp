@@ -1,13 +1,9 @@
-#include <iostream>
-#include <string>
 #include "AngajatNutritie.h"
+#include <iostream>
 
-AngajatNutritie::AngajatNutritie(int varstaPersoana, const std::string& numePersoana, double salariuAngajat, const std::string& dietaAngajat) : Angajat(varstaPersoana, numePersoana, salariuAngajat) {
-    this->dieta = dietaAngajat;
-}
-
+AngajatNutritie::AngajatNutritie(int varstaPersoana, const std::string& numePersoana, double salariuAngajat, const std::string& dietaAngajat) 
+    : Persoana(varstaPersoana, numePersoana), Angajat(varstaPersoana, numePersoana, salariuAngajat), dieta(dietaAngajat) {}
 AngajatNutritie::~AngajatNutritie() {}
-
 void AngajatNutritie::info() const {
-    std::cout << "angajat: " << getNume() << '\n' << "varsta: " << getVarsta() << '\n' << "salariu: " << getSalariu() << '\n' << "dieta: " << dieta << '\n';
+    std::cout << "Angajat Nutritie: " << getNume() << ", Dieta: " << dieta << ", Salariu: " << getSalariu() << "\n";
 }

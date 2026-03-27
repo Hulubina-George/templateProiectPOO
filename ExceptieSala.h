@@ -4,10 +4,10 @@
 
 class ExceptieSala : public std::runtime_error {
 public:
-    explicit ExceptieSala(const std::string& mesaj) : std::runtime_error(mesaj) {}
+    explicit ExceptieSala(const std::string& mesaj);
 };
 
 class ExceptieValidare : public std::runtime_error {
 public:
-    explicit ExceptieValidare(const std::string& mesaj) : std::runtime_error(mesaj) {}
+    explicit ExceptieValidare(const std::string& mesaj);
 };
