@@ -8,5 +8,5 @@ Echipament::Echipament(const std::string& nume) : numeEchipament(nume) { numarTo
 int Echipament::getNumarTotal() { return numarTotalEchipamente; }
 
 void Echipament::info() const {
-    std::cout << "Echipament: " << numeEchipament  << "\n";
+    std::cout << "Echipament: " << numeEchipament  << "\n" << "Numar total echipamente: " << getNumarTotal() << "\n";
 }
