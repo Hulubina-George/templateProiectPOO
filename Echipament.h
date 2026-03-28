@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 
-class Echipament {
+class Echipament{
 private:
     std::string numeEchipament;
     static int numarTotalEchipamente;

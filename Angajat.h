@@ -1,7 +1,7 @@
 #pragma once
 #include "Persoana.h"
 
-class Angajat : virtual public Persoana {
+class Angajat : virtual public Persoana{
 protected:
     double salariu;
 public:

@@ -41,6 +41,9 @@ void Meniu::ruleaza() {
                             double s;
                             std::cout << "Salariu: ";
                             if (!(std::cin >> s)) break;
+
+                            if (s < 0 || s > 10000) throw ExceptieValidare("Salariu invalid! Trebuie să fie între 0 și 10000.");
+                            
                             std::cout << "Antrenament: ";
                             std::cin.ignore();
                             std::string ant;
@@ -50,6 +53,9 @@ void Meniu::ruleaza() {
                             double s;
                             std::cout << "Salariu: ";
                             if (!(std::cin >> s)) break;
+
+                            if (s < 0 || s > 10000) throw ExceptieValidare("Salariu invalid! Trebuie să fie între 0 și 10000.");
+
                             std::cout << "Dieta: ";
                             std::cin.ignore();
                             std::string dieta;
@@ -59,6 +65,9 @@ void Meniu::ruleaza() {
                             double s;
                             std::cout << "Salariu: ";
                             if (!(std::cin >> s)) break;
+
+                            if (s < 0 || s > 10000) throw ExceptieValidare("Salariu invalid! Trebuie să fie între 0 și 10000.");
+
                             std::cin.ignore();
                             std::string ant, dieta;
                             std::cout << "Antrenament: ";
@@ -86,8 +95,20 @@ void Meniu::ruleaza() {
                 if (!std::getline(std::cin, nC)) break;
                 std::cout << "Salariu nou: ";
                 if (!(std::cin >> sN)) break;
-                if (salaMea.modificaSalariu(nC, sN)) std::cout << "Actualizat!\n";
-                else std::cout << "Negasit!\n";
+
+                try {
+                    if (sN < 0 || sN > 10000) {
+                        throw ExceptieValidare("Salariu invalid! Trebuie sa fie intre 0 si 10000.");
+                    }
+                    
+                    if (salaMea.modificaSalariu(nC, sN)) {
+                        std::cout << "Actualizat!\n";
+                    } else {
+                        std::cout << "Angajatul nu a fost găsit!\n";
+                    }
+                } catch (const ExceptieValidare& e) {
+                    std::cout << "Eroare: " << e.what() << "\n";
+                }
                 break;
             }
             case 3:

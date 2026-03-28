@@ -1,7 +1,7 @@
 #pragma once
 #include "Angajat.h"
 
-class AngajatNutritie : virtual public Angajat {
+class AngajatNutritie : virtual public Angajat{
 protected:
     std::string dieta;
 public:

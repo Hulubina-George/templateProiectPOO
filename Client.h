@@ -2,7 +2,7 @@
 #include "Persoana.h"
 #include "Abonament.h"
 
-class Client : public Persoana {
+class Client : public Persoana{
 private:
     int numarVizite;
     Abonament abonament;
