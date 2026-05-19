@@ -2,8 +2,8 @@
 #include "Meniu.h"
 
 int main() {
-    Sala salaMea("Gym");
-    Meniu meniu(salaMea);
+    Sala salaMea("Gym"); 
+    Meniu meniu(salaMea); 
     meniu.ruleaza();
 
     return 0;

@@ -8,7 +8,7 @@ Sala::Sala(const std::string& nume) { numeSala = new std::string(nume); } // con
 // destructor
 Sala::~Sala() {
     delete numeSala;
-    for (size_t i = 0; i < persoane.size(); ++i) 
+    for (size_t i = 0; i < persoane.dimensiune(); ++i) 
         delete persoane[i];
 }
 
@@ -22,9 +22,9 @@ Sala::Sala(const Sala& altul) {
 Sala& Sala::operator=(const Sala& altul) {
     if (this != &altul) {
         delete numeSala;
-        for (size_t i = 0; i < persoane.size(); ++i) 
+        for (size_t i = 0; i < persoane.dimensiune(); ++i) 
             delete persoane[i];
-        persoane.clear();
+        persoane.goleste();
         numeSala = new std::string(*altul.numeSala);
         echipamente = altul.echipamente;
     }
@@ -33,37 +33,38 @@ Sala& Sala::operator=(const Sala& altul) {
 
 void Sala::adaugapersoana(Persoana* p) { 
     if (!p) throw ExceptieSala("Persoana nula");
-    persoane.push_back(p); 
+    persoane.adauga(p); 
 }
 
-void Sala::adaugaechipament(const Echipament& e) { echipamente.push_back(e); }
+void Sala::adaugaechipament(const Echipament& e) { echipamente.adauga(e); }
 
 void Sala::info() const {
     std::cout << "Sala: " << *numeSala << "\nPersoane:\n";
-    for (size_t i = 0; i < persoane.size(); ++i) persoane[i]->info();
+    for (size_t i = 0; i < persoane.dimensiune(); ++i) persoane[i]->info(); //ia metoda pentru persoana indiferent de tip
 
-    std::cout << "Număr total echipamente: " << echipamente.size() << "\n";
-    for (size_t i = 0; i < echipamente.size(); ++i) {
+    std::cout << "Număr total echipamente: " << echipamente.dimensiune() << "\n";
+    for (size_t i = 0; i < echipamente.dimensiune(); ++i) {
         std::cout << " - ";
         echipamente[i].info();
     }
 }
 
+//modifica salariul unui angajat dupa nume
 bool Sala::modificaSalariu(const std::string& n, double s) {
-    for (size_t i = 0; i < persoane.size(); ++i) {
+    for (size_t i = 0; i < persoane.dimensiune(); ++i) {
         if (persoane[i]->getNume() == n) {
-            Angajat* a = dynamic_cast<Angajat*>(persoane[i]);
+            Angajat* a = dynamic_cast<Angajat*>(persoane[i]); //diferentiere client/angajat
             if (a) { a->setSalariu(s); return true; }
         }
     }
     return false;
 }
 
-
+//sterge ultima persoana adaugata in sala
 void Sala::stergeUltimaPersoana() {
-    if (!persoane.empty()) 
+    if (!persoane.esteGol()) 
         { 
-            delete persoane.back(); 
-            persoane.pop_back(); 
+            delete persoane.ultimul(); //elimina obiectul
+            persoane.stergeUltimul(); //elimina pointerul
         }
 }

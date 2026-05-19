@@ -1,14 +1,15 @@
 #pragma once
 #include <string>
-#include <vector>
+
 #include "Persoana.h"
 #include "Echipament.h"
+#include "ManagerResurse.h"
 
 class Sala {
 private:
     std::string* numeSala;
-    std::vector<Persoana*> persoane;
-    std::vector<Echipament> echipamente;
+    ManagerResurse<Persoana*> persoane; //polimorfism
+    ManagerResurse<Echipament> echipamente;
 public:
     explicit Sala(const std::string& nume); /// constructor
     ~Sala();// destructor
