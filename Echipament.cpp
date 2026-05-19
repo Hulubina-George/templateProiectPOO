@@ -10,3 +10,10 @@ int Echipament::getNumarTotal() { return numarTotalEchipamente; }
 void Echipament::info() const {
     std::cout << "Echipament: " << numeEchipament  << "\n" << "Numar total echipamente: " << getNumarTotal() << "\n";
 }
+
+nlohmann::json Echipament::toJson() const {
+    return nlohmann::json{
+        {"tip_obiect", "Echipament"},
+        {"nume", numeEchipament}
+    };
+}

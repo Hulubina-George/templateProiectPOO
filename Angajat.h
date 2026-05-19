@@ -1,5 +1,6 @@
 #pragma once
 #include "Persoana.h"
+#include <nlohmann/json.hpp>
 
 class Angajat : virtual public Persoana{
 protected:
@@ -10,4 +11,5 @@ public:
     double getSalariu() const;
     void setSalariu(double salariuNou);
     void info() const override;
+    nlohmann::json toJson() const override;
 };

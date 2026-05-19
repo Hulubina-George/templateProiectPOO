@@ -6,3 +6,14 @@ AngajatDublu::~AngajatDublu() {}
 void AngajatDublu::info() const {
     std::cout << "Angajat Dublu: " << getNume() << ", Fitness & Nutritie, Salariu: " << getSalariu() << "\n";
 }
+
+nlohmann::json AngajatDublu::toJson() const {
+    return nlohmann::json{
+        {"tip_obiect", "AngajatDublu"},
+        {"nume", getNume()},
+        {"varsta", getVarsta()},
+        {"salariu", getSalariu()},
+        {"antrenament", antrenament},
+        {"dieta", dieta}
+    };
+}

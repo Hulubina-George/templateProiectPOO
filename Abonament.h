@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 class Abonament {
 private:
@@ -12,4 +13,5 @@ public:
     double getPret() const;// getter pentru pret
     int getDurata() const;// getter pentru durata
     void info() const; /// metoda afisare
+    nlohmann::json toJson() const;
 };

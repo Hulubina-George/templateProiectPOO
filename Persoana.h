@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include <nlohmann/json.hpp>
 
 class Persoana {
 protected:
@@ -13,4 +14,5 @@ public:
     int getVarsta() const; /// getter pentru varsta
     
     virtual void info() const = 0; /// metoda virtuala pura pentru afisare
+    virtual nlohmann::json toJson() const = 0;
 };

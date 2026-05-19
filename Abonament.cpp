@@ -11,3 +11,11 @@ int Abonament::getDurata() const { return durata; }
 void Abonament::info() const {
     std::cout << "Tip: " << getTip() << ", Pret: " << getPret() << ", Durata: " << getDurata() << " zile\n";
 }
+
+nlohmann::json Abonament::toJson() const {
+    return nlohmann::json{
+        {"tip", tip},
+        {"pret", pret},
+        {"durata", durata}
+    };
+}

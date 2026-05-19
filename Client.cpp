@@ -7,3 +7,13 @@ void Client::info() const {
     std::cout << "Client: " << getNume() << ", Varsta: " << getVarsta() << ", Vizite: " << numarVizite << "\n"; /// detali client
     abonament.info(); /// afisare abonament
 }
+
+nlohmann::json Client::toJson() const {
+    return nlohmann::json{
+        {"tip_obiect", "Client"},
+        {"nume", getNume()},
+        {"varsta", getVarsta()},
+        {"numarVizite", numarVizite},
+        {"abonament", abonament.toJson()}
+    };
+}
