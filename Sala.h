@@ -5,6 +5,8 @@
 #include "Echipament.h"
 #include "ManagerResurse.h"
 
+#include <nlohmann/json.hpp>
+
 class Sala {
 private:
     std::string* numeSala;
@@ -23,4 +25,7 @@ public:
     
     bool modificaSalariu(const std::string& nume, double salariu); 
     void stergeUltimaPersoana();
+
+    void salveazaInFisier(const std::string& numeFisier = "date_sala.json") const;
+    void incarcaDinFisier(const std::string& numeFisier = "date_sala.json");
 };

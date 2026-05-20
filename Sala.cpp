@@ -3,6 +3,10 @@
 #include "ExceptieSala.h"
 #include <iostream>
 
+#include <fstream>
+
+#include "PersoanaFactory.h"
+
 Sala::Sala(const std::string& nume) { numeSala = new std::string(nume); } // constructor
 
 // destructor
@@ -67,4 +71,53 @@ void Sala::stergeUltimaPersoana() {
             delete persoane.ultimul(); //elimina obiectul
             persoane.stergeUltimul(); //elimina pointerul
         }
+}
+
+void Sala::salveazaInFisier(const std::string& numeFisier) const {
+    nlohmann::json j;
+    j["numeSala"] = *numeSala;
+
+    j["persoane"] = nlohmann::json::array();
+    for (size_t i = 0; i < persoane.dimensiune(); ++i) {
+        j["persoane"].push_back(persoane[i]->toJson());
+    }
+
+    j["echipamente"] = nlohmann::json::array();
+    for (size_t i = 0; i < echipamente.dimensiune(); ++i) {
+        j["echipamente"].push_back(echipamente[i].toJson());
+    }
+
+    std::ofstream fisier(numeFisier);
+    if (fisier.is_open()) {
+        fisier << j.dump(4);
+        fisier.close();
+    } else {
+        throw ExceptieSala("Nu s-a putut deschide fișierul pentru scriere!");
+    }
+}
+
+void Sala::incarcaDinFisier(const std::string& numeFisier) {
+    std::ifstream fisier(numeFisier);
+    if (!fisier.is_open()) {
+        throw ExceptieSala("Fisierul nu exista sau nu a putut fi deschis!");
+    }
+
+    nlohmann::json j;
+    fisier >> j;
+
+    *numeSala = j["numeSala"];
+
+    for (const auto& item : j["persoane"]) {
+        Persoana* p = PersoanaFactory::creeazaPersoana(item);
+        if (p != nullptr) {
+            adaugapersoana(p);
+        }
+    }
+
+    for (const auto& item : j["echipamente"]) {
+        std::string numeEchipament = item["nume"];
+        adaugaechipament(Echipament(numeEchipament));
+    }
+
+    fisier.close();
 }

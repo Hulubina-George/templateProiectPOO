@@ -12,8 +12,7 @@ Meniu::Meniu(Sala& s) : salaMea(s) {}
 void Meniu::ruleaza() {
     int optiune = -1;
     while (optiune != 0) {
-        std::cout << "\nMENIU GESTIUNE SALA\n1. Creare obiecte\n2. Modificare Salariu\n3. Afisare\n4. Stergere\n0. Iesire\nOptiune: ";
-        
+        std::cout << "\nMENIU GESTIUNE SALA\n1. Creare obiecte\n2. Modificare Salariu\n3. Afisare\n4. Stergere\n5. Salvare date JSON\n6. Incarcare date JSON\n0. Iesire\nOptiune: ";
         if (!(std::cin >> optiune)) { optiune = 0; continue; }
 
         switch (optiune) {
@@ -88,6 +87,7 @@ void Meniu::ruleaza() {
                 } catch (const std::exception& e) { std::cout << "Eroare: " << e.what() << "\n"; }
                 break;
             }
+
             case 2: {
                 std::string numeAngajat;
                 double salariuNou;
@@ -112,13 +112,34 @@ void Meniu::ruleaza() {
                 }
                 break;
             }
+
             case 3:
                 salaMea.info();
                 break;
+
             case 4:
                 salaMea.stergeUltimaPersoana();
                 std::cout<<"Sters!"<<'\n';
                 break;
+                
+            case 5:
+                try {
+                    salaMea.salveazaInFisier();
+                    std::cout << "\nDatele au fost salvate!\n";
+                } catch (const ExceptieSala& e) {
+                    std::cout << "\neroare " << e.what() << "\n";
+                }
+                break;
+
+            case 6:
+                try {
+                    salaMea.incarcaDinFisier();
+                    std::cout << "\nDatele au fost incarcate cu succes!\n";
+                } catch (const ExceptieSala& e) {
+                    std::cout << "\neroare " << e.what() << "\n";
+                }
+                break;
+
             case 0:
                 std::cout<<"Iesire"<<'\n';
                 break;
