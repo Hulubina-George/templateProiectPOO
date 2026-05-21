@@ -12,7 +12,7 @@ Meniu::Meniu(Sala& s) : salaMea(s) {}
 void Meniu::ruleaza() {
     int optiune = -1;
     while (optiune != 0) {
-        std::cout << "\nMENIU GESTIUNE SALA\n1. Creare obiecte\n2. Modificare Salariu\n3. Afisare\n4. Stergere\n5. Salvare date JSON\n6. Incarcare date JSON\n0. Iesire\nOptiune: ";
+        std::cout << "\nMENIU GESTIUNE SALA\n1. Creare obiecte\n2. Modificare Salariu\n3. Afisare\n4. Stergere\n5. Salvare date JSON\n6. Incarcare date JSON\n7. Acordare Bonus Angajat\n0. Iesire\nOptiune: ";
         if (!(std::cin >> optiune)) { optiune = 0; continue; }
 
         switch (optiune) {
@@ -139,6 +139,23 @@ void Meniu::ruleaza() {
                     std::cout << "\neroare " << e.what() << "\n";
                 }
                 break;
+
+            case 7: {
+                std::string numeAngajat;
+                int optiuneBonus;
+                std::cout << "Nume angajat: ";
+                std::cin.ignore();
+                if (!std::getline(std::cin, numeAngajat)) break;
+                std::cout << "Optiune bonus (1 - Sarbatori, 2 - Performanta, 3 - Fara bonus): ";
+                if (!(std::cin >> optiuneBonus)) break;
+
+                try {
+                    salaMea.aplicaStrategieBonus(numeAngajat, optiuneBonus);
+                } catch (const std::exception& e) {
+                    std::cout << "Eroare: " << e.what() << "\n";
+                }
+                break;
+            }
 
             case 0:
                 std::cout<<"Iesire"<<'\n';

@@ -28,4 +28,6 @@ public:
 
     void salveazaInFisier(const std::string& numeFisier = "date_sala.json") const;
     void incarcaDinFisier(const std::string& numeFisier = "date_sala.json");
+
+    void aplicaStrategieBonus(const std::string& numeAngajat, int optiuneBonus);
 };

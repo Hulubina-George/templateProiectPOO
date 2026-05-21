@@ -6,6 +6,7 @@
 #include <fstream>
 
 #include "PersoanaFactory.h"
+#include "StrategieBonus.h"
 
 Sala::Sala(const std::string& nume) { numeSala = new std::string(nume); } // constructor
 
@@ -120,4 +121,40 @@ void Sala::incarcaDinFisier(const std::string& numeFisier) {
     }
 
     fisier.close();
+}
+
+void Sala::aplicaStrategieBonus(const std::string& numeAngajat, int optiuneBonus) {
+    static BonusSarbatori bonusSarbatori;
+    static BonusPerformanta bonusPerformanta;
+    static FaraBonus faraBonus;
+
+    StrategieBonus* strategieSelectata = &faraBonus; // default fara bonus
+    if (optiuneBonus == 1) {
+        strategieSelectata = &bonusSarbatori;
+    } else if (optiuneBonus == 2) {
+        strategieSelectata = &bonusPerformanta;
+    }
+
+    bool gasit = false;
+
+    for (size_t i = 0; i < persoane.dimensiune(); ++i) {
+        if (persoane[i]->getNume() == numeAngajat) {
+            Angajat* a = dynamic_cast<Angajat*>(persoane[i]);
+
+            if(a != nullptr) {
+                a->setStrategieBonus(strategieSelectata);
+                std::cout << "Bonus aplicat pentru " << numeAngajat << "Salariu de baza:" << a->getSalariu() << ". Venit total: " << a->calculeazaVenitTotal() << "\n";
+                gasit = true;
+                break;
+            } else {
+                std::cout << numeAngajat << " nu este un angajat valid pentru aplicarea bonusului.\n";
+                return;
+            }
+            
+        }
+    }
+
+    if (!gasit) {
+        std::cout << "nu s-a gasit acest angajat in sala.\n";
+    }
 }
